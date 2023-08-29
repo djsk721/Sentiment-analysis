@@ -133,10 +133,11 @@ from transformers import AutoTokenizer
 import torch 
 
 
-PATH = 'result/distilkobert_2e-05_10epochs\checkpoint-8200'
+PATH = 'result/distilkobert_0.0002_10epochs\checkpoint-8200'
 MODEL = "monologg/distilkobert"
-text = "오늘 친구 집에 가기로 했는데, 약속이 안정해져서 짜증나. 그래서 그냥 집에 왔어. 그래서 기분이 너무 우울해"
-
+text = """
+학교에서 친구랑 싸웠는데 어떻게 화해해야 할 지 모르겠다. 내일 학교가서 먼저 말 걸어봐야겠다.
+"""
 model = AutoModelForSequenceClassification.from_pretrained(PATH)
 tokenizer = AutoTokenizer.from_pretrained(MODEL)
 inputs = tokenizer(text, return_tensors="pt")
